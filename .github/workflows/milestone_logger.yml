@@ -1,0 +1,46 @@
+name: Milestone Logger
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  log-milestone:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set milestone vars
+        run: |
+          echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+          echo "DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> $GITHUB_ENV
+
+      - name: Update CHANGELOG.md
+        run: |
+          {
+            echo "## [$TAG_NAME] - $DATE"
+            echo "✅ Milestone Logged: KenPire DevEx Control Plane Repo $TAG_NAME"
+            echo "- Fingerprinted + watermarked (ClauseWitch ProofLock)"
+            echo "- Public stake claim pushed to GitHub"
+            echo "- Status: RELEASED ⚔️"
+            echo
+            cat CHANGELOG.md 2>/dev/null || true
+          } > CHANGELOG.tmp
+          mv CHANGELOG.tmp CHANGELOG.md
+
+      - name: Add milestone file
+        run: |
+          mkdir -p logs/milestones
+          echo "Milestone: $TAG_NAME" > logs/milestones/${{ env.DATE }}-${{ env.TAG_NAME }}.md
+          echo "Timestamp: $DATE" >> logs/milestones/${{ env.DATE }}-${{ env.TAG_NAME }}.md
+          echo "Status: RELEASED ⚔️" >> logs/milestones/${{ env.DATE }}-${{ env.TAG_NAME }}.md
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add CHANGELOG.md logs/milestones/
+          git commit -m "🗂️ Auto-log milestone for $TAG_NAME"
+          git push
