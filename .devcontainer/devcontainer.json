@@ -1,0 +1,19 @@
+{
+  "name": "Kenpire DevEx Control Plane Repo",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "postCreateCommand": "pip install -r requirements.txt || true",
+  "customizations": {
+    "codespaces": {
+      "openFiles": [
+        "README.md",
+        "docs/devex_control_plane.md",
+        "scripts/clausewitch_watermark.py",
+        ".github/workflows/commander_catchup.yml"
+      ]
+    }
+  },
+  "remoteUser": "vscode"
+}
