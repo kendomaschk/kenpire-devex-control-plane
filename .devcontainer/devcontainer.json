@@ -1,19 +1,24 @@
 {
   "name": "Kenpire DevEx Control Plane Repo",
   "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "remoteUser": "vscode",
+  "updateRemoteUserUID": true,
   "features": {
-    "ghcr.io/devcontainers/features/git:1": {}
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/node:1": {}
   },
-  "postCreateCommand": "pip install -r requirements.txt || true",
+  "postCreateCommand": "./scripts/milestone-log.sh 'Codespace Rebuild' || true",
   "customizations": {
     "codespaces": {
       "openFiles": [
-        "README.md",
-        "docs/devex_control_plane.md",
-        "scripts/clausewitch_watermark.py",
-        ".github/workflows/commander_catchup.yml"
+        "README.md"
       ]
+    },
+    "vscode": {
+      "tasks": {
+        "autoRun": "launch-mesh"
+      }
     }
-  },
-  "remoteUser": "vscode"
+  }
 }
+
