@@ -7,7 +7,7 @@
     "ghcr.io/devcontainers/features/git:1": {},
     "ghcr.io/devcontainers/features/node:1": {}
   },
-  "postCreateCommand": "./scripts/milestone-log.sh 'Codespace Rebuild' || true",
+  "postCreateCommand": "./scripts/milestone-log.sh 'Codespace Rebuild' || true && nohup bash -c 'while true; do [ \"$(date +%H:%M)\" = \"12:00\" ] && ./scripts/rooster-ops.sh; sleep 60; done' &",
   "customizations": {
     "codespaces": {
       "openFiles": [
