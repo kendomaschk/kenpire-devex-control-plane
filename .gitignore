@@ -1,0 +1,11 @@
+# Local environment and IDE files
+.venv/
+.vscode/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Logs & temporary outputs
+logs/*.tmp
+logs/milestones/*.tmp
+*.log
