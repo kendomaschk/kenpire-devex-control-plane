@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "launch-mesh",
+      "type": "shell",
+      "command": "./scripts/setup-mesh-os.sh",
+      "problemMatcher": []
+    }
+  ]
+}
