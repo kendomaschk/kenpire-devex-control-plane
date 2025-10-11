@@ -1,0 +1,7 @@
+# Ignore local configs & keys
+keys/
+*.json
+*.log
+__pycache__/
+node_modules/
+.env

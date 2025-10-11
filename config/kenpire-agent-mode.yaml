@@ -1,0 +1,18 @@
+.../Projects/Kenpire_devex-control-plane/config/kenpire-agent-mode.yaml Modified
+  actions:
+    - "fetch_google_docs"
+    - "update_vector_memory"
+    - "log_to_notion"
+    - "prooflock_snapshot"
+    - "sync_gameboard_state"
+
+# ======================================================
+# END OF FILE
+# ======================================================
+
+
+
+
+
+
+

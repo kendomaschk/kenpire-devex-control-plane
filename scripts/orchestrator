@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+cd "$(dirname "$0")/.."  # moves to project root regardless of where it's run
+echo "Simulating Orchestrator sync..."
+python orchestrator.py --config ./config/kenpire-agent-mode.yaml
