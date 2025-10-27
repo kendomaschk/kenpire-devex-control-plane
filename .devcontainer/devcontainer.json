@@ -7,11 +7,7 @@
     "ghcr.io/devcontainers/features/git:1": {},
     "ghcr.io/devcontainers/features/node:1": {}
   },
-  "postCreateCommand": "./scripts/milestone-log.sh 'Codespace Rebuild' || true && ./scripts/rooster-ops.sh || true && nohup bash -c 'while true; do \
-    [ \"$(date +%H:%M)\" = \"12:00\" ] && ./scripts/rooster-ops.sh; \
-    [ \"$(date +%u)\" = \"5\" ] && [ \"$(date +%H:%M)\" = \"23:59\" ] && ./scripts/finish-shit-bot.sh; \
-    sleep 60; \
-  done' &",
+  "postCreateCommand": "bash -lc \"if [ -n '$GITHUB_TOKEN' ] || [ -n '$GH_TOKEN' ]; then ./scripts/milestone-log.sh 'Codespace Rebuild' || true; else echo 'Skipping milestone-log (no GITHUB_TOKEN/GH_TOKEN)'; fi; ./scripts/rooster-ops.sh || true\"",
   "customizations": {
     "codespaces": {
       "openFiles": [
@@ -25,4 +21,3 @@
     }
   }
 }
-
