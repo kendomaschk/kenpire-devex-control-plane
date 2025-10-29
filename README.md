@@ -88,4 +88,4 @@ Findings → Orchestrator → Backlog → Seed → Capsule → Pod → Release.
 
 Build → Loop → Proof → Brand → Ship → Monetize
 
-Note: based on your system playbook (KenPire Software Development – Overall Instructions v2.0) and supporting docs like KenPire Product Debrief, EcoSeed IP Proof, and Jarvess Capsule Design, here’s a clean and branded README draft tailored for the main KenPire DevEx Control Plane repo:
+Note: based on your system playbook (KenPire Software Development – Overall Instructions v2.0) and supporting docs like KenPire Product Debrief, EcoSeed IP Proof, and Jarvess Capsule Design, here’s a clean and branded README draft tailored for the main KenPire DevEx Control Plane repo. 
